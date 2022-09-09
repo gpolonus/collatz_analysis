@@ -74,4 +74,10 @@ const tupleReduce = (tuples) =>
 // see all looping numbers for series of collatz results
 const gfliiEnds = (...args) => tupleReduce(gflii(...args).map(([i, ar]) => [i, ar[ar.length - 2]]))
 
+// generator for incrementing the initial argument and returning the result
+const inc = (func, n = 2) => () => [n, func(n++)]
+
+// generator for step by step recursion
+const rec = (func, n) => () => n = func(n)
+
 
