@@ -80,4 +80,16 @@ const inc = (func, n = 2) => () => [n, func(n++)]
 // generator for step by step recursion
 const rec = (func, n) => () => n = func(n)
 
+// count query
+const instances = ar => ar.reduce((ac, n) => ({ ...ac, [n]: (ac[n] || 0) + 1 }), {})
+
+const ff = rec(gs(2,7), 11)
+const a = []
+let stop = false
+const fff = () => {a.push(ff());if(a[a.length-1] !== 1 && !stop){setTimeout(fff)} else console.log('stopped')}
+/**
+Find dups:
+a.sort((a,b) => a - b)
+a.forEach((n, i) => n === a[i-1] && console.log('found:', n))
+ */
 
